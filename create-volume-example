@@ -1,0 +1,4 @@
+docker volume create --driver local \
+    --opt type=none \
+    --opt device=/home/pavel/projects/docker-data-toolbox/postgres-store \
+    --opt o=bind postgres-store

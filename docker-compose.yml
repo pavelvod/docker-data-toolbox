@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 services:
   #------------------------
   #--- Jupyter Notebook ---
@@ -13,7 +13,8 @@ services:
     environment: 
       - MLFLOW_TRACKING_URI=http://mlflow:5000
     volumes: 
-      - file-store:/home/jovyan
+      - file-store:/root/projects
+    command: jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='dslab'
   #----------------------    
   #--- ML Flow Server ---
   #----------------------
@@ -41,18 +42,10 @@ services:
       - "5433:5432"
     volumes:
       - ./postgres-store:/var/lib/postgresql/data
-  #-----------------
-  #--- Influx DB ---
-  #-----------------
-  influx:
-    image: influxdb:alpine
-    ports: 
-      - "8086:8086"
-    environment: 
-      - INFLUXDB_ADMIN_USER=admin
-      - INFLUXDB_ADMIN_PASSWORD=secret
 
 volumes:
   postgres-store:
-  influx-store:
+    external: true
   file-store:
+    external: true
+    
