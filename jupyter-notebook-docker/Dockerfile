@@ -59,6 +59,7 @@ RUN cd /tmp && \
 
 RUN pip install --upgrade jupyter_client
 RUN pip install mlflow==1.7.0
+RUN pip install luigi
 
 # Configure access to Jupyter
 WORKDIR /root/projects
