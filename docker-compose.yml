@@ -15,7 +15,7 @@ services:
       - MLFLOW_TRACKING_URI=http://mlflow:5000
     volumes: 
       - file-store:/root/projects
-    command: jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='dslab'
+    command: jupyter notebook --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='dslab'
   #------------------------
   #---   Luigi Server   ---
   #------------------------

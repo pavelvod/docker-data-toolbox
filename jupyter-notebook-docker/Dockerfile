@@ -64,3 +64,5 @@ RUN pip install luigi
 # Configure access to Jupyter
 WORKDIR /root/projects
 EXPOSE 8888
+EXPOSE 2375
+
